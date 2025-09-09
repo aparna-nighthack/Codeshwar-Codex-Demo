@@ -48,10 +48,13 @@ def main(argv: list[str] | None = None) -> int:
         print("Error: terms must be a non-negative integer.", file=sys.stderr)
         return 2
 
+    # Print the sequence
     print(" ".join(map(str, seq)))
+    # Print the sum of the sequence at the end
+    total = sum(seq)
+    print(f"Sum: {total}")
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
