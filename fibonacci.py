@@ -40,15 +40,15 @@ def main():
     if args.terms is not None:
         if args.terms < 1:
             raise SystemExit("--terms must be >= 1")
-        seq = fibonacci_terms(args.terms)
+        seq = list(fibonacci_terms(args.terms))
     else:
         if args.max_value < 0:
             raise SystemExit("--max must be >= 0")
-        seq = fibonacci_upto(args.max_value)
+        seq = list(fibonacci_upto(args.max_value))
 
     print(args.sep.join(str(x) for x in seq))
+    print(f"Sum: {sum(seq)}")
 
 
 if __name__ == "__main__":
     main()
-
