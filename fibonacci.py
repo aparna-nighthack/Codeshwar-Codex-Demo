@@ -1,60 +1,54 @@
-#!/usr/bin/env python3
-"""
-Fibonacci series generator.
-
-Usage:
-  python3 fibonacci.py            # prints first 10 terms
-  python3 fibonacci.py 15         # prints first 15 terms
-
-The series starts at 0, 1, 1, 2, 3, ...
-"""
-
-from __future__ import annotations
-
 import argparse
-import sys
 
 
-def fibonacci(n: int) -> list[int]:
-    """Return the first n Fibonacci numbers as a list.
-
-    The sequence starts at 0, 1, 1, 2, ...
-    """
-    if n < 0:
-        raise ValueError("n must be non-negative")
-
+def fibonacci_terms(n):
     a, b = 0, 1
-    seq: list[int] = []
     for _ in range(n):
-        seq.append(a)
+        yield a
         a, b = b, a + b
-    return seq
 
 
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Print Fibonacci series")
-    parser.add_argument(
-        "terms",
-        nargs="?",
+def fibonacci_upto(max_value):
+    a, b = 0, 1
+    while a <= max_value:
+        yield a
+        a, b = b, a + b
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Generate Fibonacci series.")
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument(
+        "--terms",
         type=int,
-        default=10,
-        help="Number of terms to print (default: 10)",
+        help="Number of terms to generate (>= 1)",
     )
-    args = parser.parse_args(argv)
+    group.add_argument(
+        "--max",
+        dest="max_value",
+        type=int,
+        help="Generate all terms <= max value (>= 0)",
+    )
+    parser.add_argument(
+        "--sep",
+        default=" ",
+        help="Separator between numbers (default: space)",
+    )
 
-    try:
-        seq = fibonacci(args.terms)
-    except ValueError:
-        print("Error: terms must be a non-negative integer.", file=sys.stderr)
-        return 2
+    args = parser.parse_args()
 
-    # Print the sequence
-    print(" ".join(map(str, seq)))
-    # Print the sum of the sequence at the end
-    total = sum(seq)
-    print(f"Sum: {total}")
-    return 0
+    if args.terms is not None:
+        if args.terms < 1:
+            raise SystemExit("--terms must be >= 1")
+        seq = fibonacci_terms(args.terms)
+    else:
+        if args.max_value < 0:
+            raise SystemExit("--max must be >= 0")
+        seq = fibonacci_upto(args.max_value)
+
+    print(args.sep.join(str(x) for x in seq))
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()
+
