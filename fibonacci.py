@@ -1,56 +1,56 @@
 #!/usr/bin/env python3
+"""
+Fibonacci sequence generator with sum output.
+
+Usage:
+  - By number of terms:    python fibonacci.py 10
+
+Prints the generated sequence and the sum of its terms.
+"""
+
+from __future__ import annotations
+
 import argparse
+from typing import List
 
 
-def fibonacci_terms(n: int):
-    seq = []
-    a, b = 0, 1
-    for _ in range(n):
-        seq.append(a)
-        a, b = b, a + b
+def fibonacci_terms(n: int) -> List[int]:
+    """Return the first n terms of the Fibonacci sequence starting at 0, 1.
+
+    Examples:
+        n=1 -> [0]
+        n=2 -> [0, 1]
+        n=5 -> [0, 1, 1, 2, 3]
+    """
+    if n <= 0:
+        return []
+    if n == 1:
+        return [0]
+
+    seq = [0, 1]
+    for _ in range(2, n):
+        seq.append(seq[-1] + seq[-2])
     return seq
 
 
-def fibonacci_upto(limit: int):
-    seq = []
-    a, b = 0, 1
-    while a <= limit:
-        seq.append(a)
-        a, b = b, a + b
-    return seq
-
-
-def main():
-    parser = argparse.ArgumentParser(description="Generate Fibonacci numbers.")
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument(
-        "-n",
-        "--terms",
-        type=int,
-        help="Number of terms to generate (>= 0)",
-    )
-    group.add_argument(
-        "-m",
-        "--max",
-        dest="max_value",
-        type=int,
-        help="Generate values up to and including this maximum",
-    )
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Generate Fibonacci sequence and its sum.")
     parser.add_argument(
-        "-s", "--sep", default=" ", help="Separator between numbers (default: space)"
+        "n",
+        type=int,
+        help="Number of terms to generate (positive integer)",
     )
-
     args = parser.parse_args()
 
-    if args.terms is not None:
-        if args.terms < 0:
-            parser.error("--terms must be >= 0")
-        seq = fibonacci_terms(args.terms)
-    else:
-        limit = args.max_value
-        seq = fibonacci_upto(limit)
+    n = args.n
+    if n < 0:
+        raise SystemExit("n must be a non-negative integer")
 
-    print(args.sep.join(map(str, seq)))
+    sequence = fibonacci_terms(n)
+    total = sum(sequence)
+
+    print(f"Fibonacci sequence (n={n}): {sequence}")
+    print(f"Sum: {total}")
 
 
 if __name__ == "__main__":
