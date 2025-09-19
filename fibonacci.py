@@ -1,10 +1,10 @@
 """
-Fibonacci series generator with sum calculation.
+Fibonacci series generator that prints only even numbers and their sum.
 
 Usage:
   python fibonacci.py --terms 10
 
-Outputs the Fibonacci sequence and the sum of its terms.
+Outputs only the even Fibonacci numbers (from the first N terms) and their sum.
 """
 
 from __future__ import annotations
@@ -41,7 +41,9 @@ def fibonacci_sum(n_terms: int) -> int:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate Fibonacci series and its sum.")
+    parser = argparse.ArgumentParser(
+        description="Generate even Fibonacci numbers and their sum."
+    )
     parser.add_argument(
         "-t",
         "--terms",
@@ -52,11 +54,12 @@ def main() -> None:
     args = parser.parse_args()
 
     seq = fibonacci_series(args.terms)
-    total = sum(seq)
+    even_seq = [x for x in seq if x % 2 == 0]
+    total = sum(even_seq)
 
-    print("Fibonacci sequence ({} terms):".format(args.terms))
-    if seq:
-        print(" ".join(str(x) for x in seq))
+    print("Even Fibonacci numbers (from {} terms):".format(args.terms))
+    if even_seq:
+        print(" ".join(str(x) for x in even_seq))
     else:
         print("<empty>")
     print("Sum:", total)
@@ -64,4 +67,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
