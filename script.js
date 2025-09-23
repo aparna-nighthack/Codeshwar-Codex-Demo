@@ -12,7 +12,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   });
 });
 
-// Generic carousel initializer
+// Generic carousel initializer with dots
 function initCarousel(rootId, opts = {}) {
   const root = document.getElementById(rootId);
   if (!root) return;
@@ -28,6 +28,7 @@ function initCarousel(rootId, opts = {}) {
       s.classList.toggle('active', active);
       s.setAttribute('aria-hidden', String(!active));
     });
+    dots?.forEach((d, di) => d.classList.toggle('active', di === i));
   }
 
   function next() { index = (index + 1) % slides.length; setActive(index); }
@@ -35,6 +36,21 @@ function initCarousel(rootId, opts = {}) {
 
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
+
+  // Dots
+  let dots = [];
+  const dotsWrap = document.createElement('div');
+  dotsWrap.className = 'dots';
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot';
+    b.type = 'button';
+    b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    b.addEventListener('click', () => { index = i; setActive(index); });
+    dotsWrap.appendChild(b);
+    dots.push(b);
+  });
+  root.appendChild(dotsWrap);
 
   if (opts.autoplay) {
     const interval = opts.interval || 5000;
@@ -132,9 +148,12 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
 const modal = document.getElementById('demoModal');
 const openBtn = document.getElementById('watchDemoBtn');
 const closeBtn = modal?.querySelector('.modal-close');
+let lastFocusedEl = null;
 
 openBtn?.addEventListener('click', () => {
+  lastFocusedEl = document.activeElement;
   modal?.showModal();
+  modal?.focus();
 });
 closeBtn?.addEventListener('click', () => modal?.close());
 modal?.addEventListener('click', (e) => {
@@ -143,4 +162,196 @@ modal?.addEventListener('click', (e) => {
   const inDialog = (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom);
   if (!inDialog) modal?.close();
 });
+modal?.addEventListener('close', () => {
+  if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+    lastFocusedEl.focus();
+  }
+});
 
+// Close any open dialog with Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('dialog[open]')?.forEach((d) => {
+      if (typeof d.close === 'function') d.close();
+    });
+  }
+});
+
+// Theme toggle
+(function initTheme() {
+  const key = 'theme';
+  const btn = document.getElementById('themeToggle');
+  const stored = localStorage.getItem(key);
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const startDark = stored ? stored === 'dark' : prefersDark;
+  if (startDark) document.body.classList.add('dark');
+
+  function updateLabel() {
+    const dark = document.body.classList.contains('dark');
+    if (btn) {
+      btn.textContent = dark ? 'Light' : 'Dark';
+      btn.setAttribute('aria-pressed', String(dark));
+    }
+  }
+
+  btn?.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const dark = document.body.classList.contains('dark');
+    localStorage.setItem(key, dark ? 'dark' : 'light');
+    updateLabel();
+  });
+
+  updateLabel();
+})();
+
+// Scrollspy for nav
+(function scrollSpy() {
+  const links = Array.from(document.querySelectorAll('.nav a[href^="#"]'));
+  const sections = links
+    .map((l) => document.querySelector(l.getAttribute('href')))
+    .filter(Boolean);
+
+  function onScroll() {
+    const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+    const offset = 120; // header + margin
+    let current = sections[0];
+    for (const sec of sections) {
+      const rect = sec.getBoundingClientRect();
+      const top = rect.top + scrollPos - offset;
+      if (scrollPos >= top) current = sec;
+    }
+    links.forEach((l) => l.classList.toggle('active', l.getAttribute('href') === `#${current.id}`));
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('load', onScroll);
+})();
+
+// Back to top
+(function backToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  const toggle = () => {
+    const y = window.scrollY || document.documentElement.scrollTop;
+    btn.classList.toggle('show', y > 400);
+  };
+  window.addEventListener('scroll', toggle, { passive: true });
+  window.addEventListener('load', toggle);
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+// Scroll reveal animations
+(function revealOnScroll() {
+  const items = Array.from(document.querySelectorAll('.reveal'));
+  if (!('IntersectionObserver' in window) || items.length === 0) {
+    items.forEach((el) => el.classList.add('show'));
+    return;
+  }
+  const ob = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add('show'); ob.unobserve(e.target); }
+  }, { threshold: 0.15 });
+  items.forEach((el) => ob.observe(el));
+})();
+
+// Scroll progress bar
+(function progressBar() {
+  const bar = document.getElementById('progressBar');
+  if (!bar) return;
+  function update() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const pct = height > 0 ? (scrollTop / height) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+})();
+
+// Device search filter
+(function deviceSearch() {
+  const input = document.getElementById('deviceSearch');
+  const status = document.getElementById('deviceSearchStatus');
+  const cards = Array.from(document.querySelectorAll('.devices .card'));
+  if (!input || cards.length === 0) return;
+  function normalize(s) { return s.toLowerCase(); }
+  function textOf(card) { return (card.querySelector('h3')?.textContent + ' ' + card.querySelector('.specs')?.textContent) || ''; }
+  function update() {
+    const q = normalize(input.value.trim());
+    let visible = 0;
+    for (const c of cards) {
+      const match = q === '' || normalize(textOf(c)).includes(q);
+      c.style.display = match ? '' : 'none';
+      if (match) visible++;
+    }
+    if (status) status.textContent = q ? `${visible} result${visible === 1 ? '' : 's'} for “${input.value}”` : '';
+  }
+  input.addEventListener('input', update);
+})();
+
+// Compare selection and modal
+(function compareDevices() {
+  const checks = Array.from(document.querySelectorAll('.compare-check'));
+  if (checks.length === 0) return;
+  const bar = document.getElementById('compareBar');
+  const openBtn = document.getElementById('openCompare');
+  const clearBtn = document.getElementById('clearCompare');
+  const countSpan = document.getElementById('compareCount');
+  const modal = document.getElementById('compareModal');
+  const closeBtn = modal?.querySelector('.modal-close');
+  const table = document.getElementById('comparisonTable');
+  const selected = new Set();
+
+  function updateBar() {
+    const count = selected.size;
+    countSpan.textContent = String(count);
+    bar.classList.toggle('hidden', count === 0);
+    openBtn.disabled = count < 2;
+  }
+
+  function getCardData(card) {
+    const name = card.querySelector('h3')?.textContent?.trim() || 'Unknown';
+    const specs = Array.from(card.querySelectorAll('.specs li')).map((li) => li.textContent?.trim() || '');
+    return { name, specs };
+  }
+
+  function renderComparison() {
+    if (!table) return;
+    table.innerHTML = '';
+    const cols = Array.from(selected).map((card) => getCardData(card));
+    cols.forEach((col) => {
+      const div = document.createElement('div');
+      div.className = 'col';
+      const h = document.createElement('h4');
+      h.textContent = col.name;
+      const ul = document.createElement('ul');
+      col.specs.forEach((s) => { const li = document.createElement('li'); li.textContent = s; ul.appendChild(li); });
+      div.appendChild(h); div.appendChild(ul);
+      table.appendChild(div);
+    });
+  }
+
+  checks.forEach((chk) => {
+    chk.addEventListener('change', (e) => {
+      const card = e.target.closest('.card');
+      if (!card) return;
+      if (chk.checked) {
+        if (selected.size >= 2) { chk.checked = false; return; }
+        selected.add(card);
+      } else {
+        selected.delete(card);
+      }
+      updateBar();
+    });
+  });
+
+  openBtn?.addEventListener('click', () => {
+    renderComparison();
+    modal?.showModal();
+  });
+  clearBtn?.addEventListener('click', () => {
+    selected.clear();
+    checks.forEach((c) => (c.checked = false));
+    updateBar();
+  });
+  closeBtn?.addEventListener('click', () => modal?.close());
+})();
