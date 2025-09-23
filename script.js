@@ -132,9 +132,12 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
 const modal = document.getElementById('demoModal');
 const openBtn = document.getElementById('watchDemoBtn');
 const closeBtn = modal?.querySelector('.modal-close');
+let lastFocusedEl = null;
 
 openBtn?.addEventListener('click', () => {
+  lastFocusedEl = document.activeElement;
   modal?.showModal();
+  modal?.focus();
 });
 closeBtn?.addEventListener('click', () => modal?.close());
 modal?.addEventListener('click', (e) => {
@@ -143,4 +146,8 @@ modal?.addEventListener('click', (e) => {
   const inDialog = (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom);
   if (!inDialog) modal?.close();
 });
-
+modal?.addEventListener('close', () => {
+  if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+    lastFocusedEl.focus();
+  }
+});
