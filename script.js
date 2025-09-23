@@ -12,7 +12,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
   });
 });
 
-// Generic carousel initializer
+// Generic carousel initializer with dots
 function initCarousel(rootId, opts = {}) {
   const root = document.getElementById(rootId);
   if (!root) return;
@@ -28,6 +28,7 @@ function initCarousel(rootId, opts = {}) {
       s.classList.toggle('active', active);
       s.setAttribute('aria-hidden', String(!active));
     });
+    dots?.forEach((d, di) => d.classList.toggle('active', di === i));
   }
 
   function next() { index = (index + 1) % slides.length; setActive(index); }
@@ -35,6 +36,21 @@ function initCarousel(rootId, opts = {}) {
 
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
+
+  // Dots
+  let dots = [];
+  const dotsWrap = document.createElement('div');
+  dotsWrap.className = 'dots';
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot';
+    b.type = 'button';
+    b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    b.addEventListener('click', () => { index = i; setActive(index); });
+    dotsWrap.appendChild(b);
+    dots.push(b);
+  });
+  root.appendChild(dotsWrap);
 
   if (opts.autoplay) {
     const interval = opts.interval || 5000;
@@ -132,9 +148,12 @@ document.getElementById('year').textContent = String(new Date().getFullYear());
 const modal = document.getElementById('demoModal');
 const openBtn = document.getElementById('watchDemoBtn');
 const closeBtn = modal?.querySelector('.modal-close');
+let lastFocusedEl = null;
 
 openBtn?.addEventListener('click', () => {
+  lastFocusedEl = document.activeElement;
   modal?.showModal();
+  modal?.focus();
 });
 closeBtn?.addEventListener('click', () => modal?.close());
 modal?.addEventListener('click', (e) => {
@@ -143,4 +162,78 @@ modal?.addEventListener('click', (e) => {
   const inDialog = (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom);
   if (!inDialog) modal?.close();
 });
+modal?.addEventListener('close', () => {
+  if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+    lastFocusedEl.focus();
+  }
+});
 
+// Close modal with Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal?.open) {
+    modal.close();
+  }
+});
+
+// Theme toggle
+(function initTheme() {
+  const key = 'theme';
+  const btn = document.getElementById('themeToggle');
+  const stored = localStorage.getItem(key);
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const startDark = stored ? stored === 'dark' : prefersDark;
+  if (startDark) document.body.classList.add('dark');
+
+  function updateLabel() {
+    const dark = document.body.classList.contains('dark');
+    if (btn) {
+      btn.textContent = dark ? 'Light' : 'Dark';
+      btn.setAttribute('aria-pressed', String(dark));
+    }
+  }
+
+  btn?.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const dark = document.body.classList.contains('dark');
+    localStorage.setItem(key, dark ? 'dark' : 'light');
+    updateLabel();
+  });
+
+  updateLabel();
+})();
+
+// Scrollspy for nav
+(function scrollSpy() {
+  const links = Array.from(document.querySelectorAll('.nav a[href^="#"]'));
+  const sections = links
+    .map((l) => document.querySelector(l.getAttribute('href')))
+    .filter(Boolean);
+
+  function onScroll() {
+    const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+    const offset = 120; // header + margin
+    let current = sections[0];
+    for (const sec of sections) {
+      const rect = sec.getBoundingClientRect();
+      const top = rect.top + scrollPos - offset;
+      if (scrollPos >= top) current = sec;
+    }
+    links.forEach((l) => l.classList.toggle('active', l.getAttribute('href') === `#${current.id}`));
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('load', onScroll);
+})();
+
+// Back to top
+(function backToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  const toggle = () => {
+    const y = window.scrollY || document.documentElement.scrollTop;
+    btn.classList.toggle('show', y > 400);
+  };
+  window.addEventListener('scroll', toggle, { passive: true });
+  window.addEventListener('load', toggle);
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
