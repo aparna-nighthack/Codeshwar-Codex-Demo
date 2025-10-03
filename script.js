@@ -13,7 +13,7 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 });
 
 // Generic carousel initializer with dots
-function initCarousel(rootId, opts = {}) {
+function initCarousel(rootId, opts = {} {
   const root = document.getElementById(rootId);
   if (!root) return;
   const prevBtn = root.querySelector('.prev');
