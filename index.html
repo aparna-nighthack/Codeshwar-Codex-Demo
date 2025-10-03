@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vivo | Innovation Meets Elegance</title>
+    <meta name="description" content="Explore Vivo's latest flagship phones. Innovation meets elegance with Zeiss camera, 120W charging, and more. Shop now or watch the demo." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#hero" aria-label="Vivo Home">
+          <img src="https://wallpapers.com/images/hd/metallic-vivo-logo-dark-y4ti2whe3w5sk4rj.jpg" alt="Vivo logo" loading="lazy" decoding="async" />
+        </a>
+        <nav class=
+          "nav">
+          <a href="#phones">Phones</a>
+          <a href="#features">Features</a>
+          <a href="#offers">Offers</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button id="themeToggle" class="btn btn-ghost btn-small" type="button" aria-pressed="false" aria-label="Toggle dark mode">Dark</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="hero" class="hero">
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <h1>Innovation Meets Elegance</h1>
+            <p class="subtitle">Experience the new era of mobility with Vivo’s latest smartphone.</p>
+            <div class="cta">
+              <a class="btn btn-primary" href="#phones" aria-label="Shop Now">Shop Now</a>
+              <button class="btn btn-ghost" id="watchDemoBtn" type="button" aria-haspopup="dialog" aria-controls="demoModal">Watch Demo</button>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img src="https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1747038695532/5f3c0635fdd4f07b5bdbf752c2a56215.jpg" alt="Vivo flagship phone showcase" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Flagship Devices -->
+      <section id="phones" class="section devices reveal">
+        <div class="container">
+          <h2>Flagship Devices</h2>
+          <p class="section-lead">Powerful performance, pro‑grade cameras, and stunning design — choose your perfect Vivo.</p>
+
+          <div class="toolbar" role="region" aria-label="Device tools">
+            <input id="deviceSearch" class="input" type="search" placeholder="Search by model or feature…" aria-label="Search devices" />
+            <p id="deviceSearchStatus" class="muted" aria-live="polite"></p>
+          </div>
+
+          <div class="cards">
+            <article class="card reveal" data-model="Vivo X100 Pro">
+            <img src="https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1738642505600/f975162964914980d0fa5f54c6df1a76.jpg" alt="Vivo X100 Pro – representative image" loading="lazy" decoding="async" />
+              <h3>Vivo X100 Pro</h3>
+              <ul class="specs">
+                <li>Zeiss 1"-class main sensor</li>
+                <li>6.78" AMOLED · 120Hz</li>
+                <li>Dimensity flagship chipset</li>
+                <li>5,000 mAh · 120W FlashCharge</li>
+              </ul>
+              <div class="card-actions">
+                <a class="btn btn-outline" href="#offers">View Offers</a>
+                <label class="compare">
+                  <input type="checkbox" class="compare-check" aria-label="Select Vivo X100 Pro for comparison" />
+                  Compare
+                </label>
+              </div>
+            </article>
+
+            <article class="card reveal" data-model="Vivo V30">
+            <img src="https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=500,quality=75/product/vivo-v40-5g-titanium-grey-256gb-8gb-ram-front-back-view.png" alt="Vivo V30 – representative image" loading="lazy" decoding="async" />
+              <h3>Vivo V30</h3>
+              <ul class="specs">
+                <li>50MP Aura Light Portrait</li>
+                <li>6.7" AMOLED · 120Hz</li>
+                <li>Power‑efficient 5G platform</li>
+                <li>4,800 mAh · 80W Charging</li>
+              </ul>
+              <div class="card-actions">
+                <a class="btn btn-outline" href="#offers">View Offers</a>
+                <label class="compare">
+                  <input type="checkbox" class="compare-check" aria-label="Select Vivo V30 for comparison" />
+                  Compare
+                </label>
+              </div>
+            </article>
+
+            <article class="card reveal" data-model="Vivo T3 5G">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/7/322696313/YT/LA/KI/188924882/vivo-mobile-phone.jpg" alt="Vivo T3 5G – representative image" loading="lazy" decoding="async" />
+              <h3>Vivo T3 5G</h3>
+              <ul class="specs">
+                <li>64MP OIS Night Camera</li>
+                <li>AMOLED · 120Hz</li>
+                <li>Gaming‑tuned 5G chipset</li>
+                <li>5,000 mAh · 44W Fast Charge</li>
+              </ul>
+              <div class="card-actions">
+                <a class="btn btn-outline" href="#offers">View Offers</a>
+                <label class="compare">
+                  <input type="checkbox" class="compare-check" aria-label="Select Vivo T3 5G for comparison" />
+                  Compare
+                </label>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Features Carousels -->
+      <section id="features" class="section features reveal">
+        <div class="container">
+          <h2>Key Features</h2>
+          <p class="section-lead">Explore innovations that define the Vivo experience.</p>
+
+          <div class="feature-group">
+            <h3>Zeiss Professional Camera</h3>
+            <div class="carousel" id="camera-carousel">
+              <button class="nav prev" type="button" aria-label="Previous slide">&#10094;</button>
+              <div class="slides">
+                <figure class="slide active">
+                  <img src="https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1738642505600/f975162964914980d0fa5f54c6df1a76.jpg" alt="Zeiss camera optics close-up" loading="lazy" decoding="async" />
+                  <figcaption>Co‑engineered with Zeiss for true‑to‑life colors.</figcaption>
+                </figure>
+                <figure class="slide">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNxI8rHJaCijOLScMlaX68aenWQyIl-ixs3g&s" alt="Portrait sample with vivid bokeh" loading="lazy" decoding="async" />
+                  <figcaption>Portraits with cinematic bokeh and Zeiss Style Portraits.</figcaption>
+                </figure>
+                <figure class="slide">
+                  <img src="https://5.imimg.com/data5/SELLER/Default/2023/7/322696313/YT/LA/KI/188924882/vivo-mobile-phone.jpg" alt="Night scene captured on Vivo phone" loading="lazy" decoding="async" />
+                  <figcaption>Night shots with less noise and more detail.</figcaption>
+                </figure>
+              </div>
+              <button class="nav next" type="button" aria-label="Next slide">&#10095;</button>
+            </div>
+          </div>
+
+          <div class="feature-group">
+            <h3>120W FlashCharge</h3>
+            <div class="carousel" id="charging-carousel">
+              <button class="nav prev" type="button" aria-label="Previous slide">&#10094;</button>
+              <div class="slides">
+                <figure class="slide active">
+                  <img src="https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1747038695532/5f3c0635fdd4f07b5bdbf752c2a56215.jpg" alt="Charging animation on screen" loading="lazy" decoding="async" />
+                  <figcaption>From 1% to 50% in minutes.</figcaption>
+                </figure>
+                <figure class="slide">
+                  <img src="https://img-prd-pim.poorvika.com/cdn-cgi/image/width=500,height=500,quality=75/product/vivo-v40-5g-titanium-grey-256gb-8gb-ram-front-back-view.png" alt="Phone and charger on desk" loading="lazy" decoding="async" />
+                  <figcaption>Smart thermal management for cool, safe charging.</figcaption>
+                </figure>
+                <figure class="slide">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNxI8rHJaCijOLScMlaX68aenWQyIl-ixs3g&s" alt="Battery icon at 100%" loading="lazy" decoding="async" />
+                  <figcaption>Long‑lasting battery health with intelligent charging.</figcaption>
+                </figure>
+              </div>
+              <button class="nav next" type="button" aria-label="Next slide">&#10095;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Limited-time Offers with Countdown -->
+      <section id="offers" class="section offers reveal">
+        <div class="container">
+          <h2>Limited‑Time Offers</h2>
+          <p class="section-lead">Grab exclusive launch deals before they’re gone.</p>
+
+          <div class="offer-card">
+            <div class="offer-text">
+              <strong>Launch Week</strong>
+              <span>Extra ₹3,000 exchange bonus + No‑cost EMI</span>
+            </div>
+            <div class="countdown" aria-live="polite" title="Offer ends soon">
+              <span id="days">00</span>d
+              <span id="hours">00</span>h
+              <span id="minutes">00</span>m
+              <span id="seconds">00</span>s
+            </div>
+            <a class="btn btn-primary" href="#contact">Claim Offer</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="section testimonials reveal">
+        <div class="container">
+          <h2>Loved by Users</h2>
+          <p class="section-lead">Real impressions from Vivo owners worldwide.</p>
+
+          <div class="carousel testimonial-carousel" id="testimonials-carousel">
+            <button class="nav prev" aria-label="Previous testimonial">&#10094;</button>
+            <div class="slides">
+              <figure class="slide active">
+                <blockquote>Camera quality is on another level — portraits look studio‑grade!</blockquote>
+                <figcaption>— Ayesha, Mumbai</figcaption>
+              </figure>
+              <figure class="slide">
+                <blockquote>Finally a phone that charges fast and lasts long. Love it.</blockquote>
+                <figcaption>— Daniel, London</figcaption>
+              </figure>
+              <figure class="slide">
+                <blockquote>Sleek design, fluid display, and great performance for gaming.</blockquote>
+                <figcaption>— Kenji, Tokyo</figcaption>
+              </figure>
+            </div>
+            <button class="nav next" aria-label="Next testimonial">&#10095;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section id="contact" class="section contact reveal">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <p class="section-lead">Questions or ready to buy? Send us a message.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-grid">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your full name" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <p id="formStatus" role="status" class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <section id="faq" class="section faq reveal">
+      <div class="container">
+        <h2>FAQ</h2>
+        <p class="section-lead">Answers to common questions about buying and using Vivo phones.</p>
+        <div class="accordion" role="region" aria-label="Frequently Asked Questions">
+          <details>
+            <summary>What is the warranty period?</summary>
+            <p>All Vivo phones include a 1‑year limited warranty covering manufacturing defects. Extended coverage is available at checkout.</p>
+          </details>
+          <details>
+            <summary>Does fast charging affect battery health?</summary>
+            <p>Vivo’s smart charging algorithms optimize current and temperature to preserve long‑term battery health, even with high‑wattage charging.</p>
+          </details>
+          <details>
+            <summary>Will I receive OS and security updates?</summary>
+            <p>Yes. Flagship models receive major Android updates and regular security patches during the support window.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer reveal">
+      <div class="container footer-inner">
+        <div class="footer-col">
+          <h4>Follow Vivo</h4>
+          <div class="socials">
+            <a href="https://www.facebook.com/vivo" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/vivo" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://twitter.com/vivo_india" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://www.youtube.com/@vivo" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <form id="newsletterForm" class="newsletter" novalidate>
+            <input type="email" name="newsletter" placeholder="Email address" aria-label="Email address" required />
+            <button class="btn btn-outline" type="submit">Subscribe</button>
+          </form>
+          <p id="newsletterStatus" class="form-status" aria-live="polite"></p>
+        </div>
+        <div class="footer-col smallprint">
+          <p>&copy; <span id="year"></span> Vivo. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Demo Modal -->
+    <dialog id="demoModal" class="modal" aria-label="Vivo phone demo video" aria-modal="true">
+      <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close demo">&times;</button>
+        <div class="video-wrap">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/2X0cVqEYXxA" title="Vivo phone demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Compare Drawer / Bar -->
+    <div id="compareBar" class="compare-bar hidden" role="region" aria-label="Device comparison">
+      <div class="compare-summary">
+        <span id="compareCount">0</span> selected for comparison
+      </div>
+      <div class="compare-actions">
+        <button id="clearCompare" class="btn btn-ghost btn-small" type="button">Clear</button>
+        <button id="openCompare" class="btn btn-primary btn-small" type="button" disabled>Compare</button>
+      </div>
+    </div>
+
+    <!-- Compare Modal -->
+    <dialog id="compareModal" class="modal" aria-label="Compare devices" aria-modal="true">
+      <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close comparison">&times;</button>
+        <div class="comparison-wrap">
+          <h3>Device Comparison</h3>
+          <div id="comparisonTable" class="comparison-table" role="table" aria-label="Side-by-side specs"></div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+    <!-- Scroll progress -->
+    <div class="progress" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+
+    <script src="script.js" defer></script>
+  </body>
+  </html>
