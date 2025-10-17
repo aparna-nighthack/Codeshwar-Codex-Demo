@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2f5d40" />
+    <title>Leaf &amp; Bean — Eco-Friendly Café</title>
+    <meta name="description" content="Leaf &amp; Bean is a cozy, eco-friendly café with organic coffees, teas, and fresh bakes. Step into a calm green oasis." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Leaf and Bean Home">
+          <span class="brand-mark" aria-hidden="true">🍃</span>
+          <span class="brand-text">Leaf &amp; Bean</span>
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="#menu">Menu</a>
+          <a href="#story">Our Story</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-media" role="img" aria-label="Warm eco-friendly café interior"></div>
+        <div class="container hero-content">
+          <h1 class="reveal-up">Welcome to Leaf &amp; Bean</h1>
+          <p class="lead reveal-up" style="--d:0.05s">A cozy, eco-friendly café oasis serving organic brews and seasonal bites.</p>
+          <div class="cta reveal-up" style="--d:0.1s">
+            <a href="#menu" class="btn btn-primary">Explore Menu</a>
+            <a href="#story" class="btn btn-ghost">Our Philosophy</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="section">
+        <div class="container">
+          <header class="section-header reveal-up">
+            <h2>Menu</h2>
+            <p>Thoughtfully sourced, crafted with care.</p>
+          </header>
+          <div class="cards">
+            <article class="card reveal-up">
+              <h3>Signature Coffees</h3>
+              <ul>
+                <li>Forest Flat White — oat or almond</li>
+                <li>Canopy Cappuccino — single origin</li>
+                <li>Rustic Pour Over — seasonal roast</li>
+              </ul>
+            </article>
+            <article class="card reveal-up" style="--d:0.05s">
+              <h3>Teas &amp; Infusions</h3>
+              <ul>
+                <li>Wild Mint &amp; Lemongrass</li>
+                <li>Jasmine Green — organic</li>
+                <li>Chai on the River — oat milk</li>
+              </ul>
+            </article>
+            <article class="card reveal-up" style="--d:0.1s">
+              <h3>Fresh Bakes</h3>
+              <ul>
+                <li>Walnut Banana Loaf</li>
+                <li>Matcha Pistachio Cookie</li>
+                <li>Spelt Sourdough Slice</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" class="section alt">
+        <div class="container grid grid-2">
+          <div class="story-media reveal-up">
+            <svg class="leaf-illustration" viewBox="0 0 200 200" aria-hidden="true">
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="var(--green-2)" />
+                  <stop offset="100%" stop-color="var(--green-3)" />
+                </linearGradient>
+              </defs>
+              <path fill="url(#g)" d="M165 40c-40 0-85 25-110 50s-35 65-35 65 40 0 65-25 50-70 80-90z" opacity="0.9" />
+              <path fill="var(--green-4)" d="M50 150c30-10 80-60 115-110" stroke="var(--green-5)" stroke-width="3" fill="none" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="story-text reveal-up" style="--d:0.05s">
+            <h2>Our Story</h2>
+            <p>Leaf &amp; Bean began with a simple idea: coffee tastes better when it’s kind to the planet. We source organic beans and teas from small farms, bake with seasonal ingredients, and serve it all in a warm, welcoming space that feels like nature brought indoors.</p>
+            <p>From compostable packaging to upcycled furnishings, every detail reflects our commitment to sustainability and community. Take a breath, sip slowly, and stay awhile.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="container">
+          <header class="section-header reveal-up">
+            <h2>Gallery</h2>
+            <p>Moments from our green oasis.</p>
+          </header>
+          <div class="masonry">
+            <figure class="tile reveal-up"><img src="https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/03/eco-friendly-cafe-house.jpg" alt="Sunlit eco-friendly café interior with plants" /></figure>
+            <figure class="tile reveal-up" style="--d:0.05s"><img src="https://cdn.prod.website-files.com/623ba40662d1081c47631813/66ebb011709139ed34780127_BlogEDM%20images%20-%201600x1000px%20(26)%20copy.pngcreate" alt="Reusable cup with eco-friendly message" /></figure>
+            <figure class="tile reveal-up" style="--d:0.1s"><img src="https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/03/eco-friendly-cafe-house.jpg" alt="Cozy corner with wooden textures and greenery" /></figure>
+            <figure class="tile reveal-up" style="--d:0.15s"><img src="https://cdn.prod.website-files.com/623ba40662d1081c47631813/66ebb011709139ed34780127_BlogEDM%20images%20-%201600x1000px%20(26)%20copy.pngcreate" alt="Eco cup close-up on wooden table" /></figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section alt">
+        <div class="container grid grid-2">
+          <div class="contact-info reveal-up">
+            <h2>Contact</h2>
+            <p>123 Greenway Lane, Arborville</p>
+            <p>Open daily: 7:30am – 6:00pm</p>
+            <p>
+              <a href="tel:+1234567890">+1 (234) 567-890</a><br />
+              <a href="mailto:hello@leafandbean.cafe">hello@leafandbean.cafe</a>
+            </p>
+            <div class="social">
+              <a href="#" aria-label="Instagram" class="social-icon" title="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 15.8 2.8 2.8 0 0 0 12 9.2zM18 6.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+              </a>
+              <a href="#" aria-label="Facebook" class="social-icon" title="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13 22v-8h3l1-4h-4V8c0-1.1.9-2 2-2h2V2h-2a5 5 0 0 0-5 5v3H8v4h2v8h3z"/></svg>
+              </a>
+              <a href="#" aria-label="X" class="social-icon" title="X">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 3l7.1 9.6L4.4 21H7l6.1-6.9 4.7 6.9H20l-7-9.8L19.3 3H17l-5.6 6.4L7.1 3H4z"/></svg>
+              </a>
+            </div>
+          </div>
+          <form class="contact-card reveal-up" style="--d:0.05s" onsubmit="event.preventDefault()">
+            <h3>Say Hello</h3>
+            <label>
+              <span>Name</span>
+              <input type="text" placeholder="Your name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea rows="4" placeholder="What can we do for you?"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <p class="note">No spam — we respect your privacy and the planet.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Leaf &amp; Bean — Brewed with care.</p>
+        <nav class="footer-nav">
+          <a href="#home">Home</a>
+          <a href="#menu">Menu</a>
+          <a href="#story">Story</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
