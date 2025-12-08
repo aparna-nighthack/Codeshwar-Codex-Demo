@@ -1,0 +1,146 @@
+/*
+  Leaf & Bean — Calm, organic, welcoming.
+  Earthy greens + warm browns with elegant typography.
+*/
+
+:root {
+  --green-700: #2e7d32;
+  --green-600: #3f8f41;
+  --green-500: #4f6f52;
+  --green-100: #e6efe8;
+  --brown-500: #8b5e3c;
+  --brown-600: #6e462b;
+  --cream: #f7f3ee;
+  --ink: #1d2320;
+  --muted: #576057;
+  --card: #ffffff;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--cream), #f3efe8);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; display: block; border-radius: 12px; }
+a { color: var(--green-600); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(247, 243, 238, 0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); letter-spacing: .2px; }
+.brand-mark { font-size: 1.2rem; }
+.brand-name { font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.2rem; }
+
+.site-nav { display: flex; gap: 22px; align-items: center; }
+.site-nav a { color: var(--ink); padding: 8px 10px; border-radius: 10px; }
+.site-nav a:hover { background: var(--green-100); text-decoration: none; }
+
+.nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid rgba(0,0,0,0.1); background: #fff; border-radius: 10px; align-items: center; justify-content: center; gap: 4px; }
+.nav-toggle .bar { display:block; width:20px; height:2px; background: var(--ink); border-radius: 2px; }
+
+/* Hero */
+.hero { position: relative; min-height: 78vh; display: grid; place-items: center; overflow: clip; }
+.hero-bg {
+  position: absolute; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(180deg, rgba(17,30,20,0.45), rgba(17,30,20,0.55)),
+    url('https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/03/eco-friendly-cafe-house.jpg');
+  background-size: cover; background-position: center; filter: saturate(0.9);
+}
+.hero-content { text-align: center; color: #fff; padding: 80px 0; }
+.hero h1 { font-family: "Playfair Display", serif; font-size: clamp(2rem,4.8vw,3.6rem); line-height: 1.05; letter-spacing: .2px; }
+.lead { font-size: clamp(1rem,2.2vw,1.25rem); color: #f0f6f1; max-width: 720px; margin: 14px auto 0; }
+.cta-group { margin-top: 28px; display: inline-flex; gap: 12px; flex-wrap: wrap; }
+
+.btn { display: inline-block; border-radius: 999px; padding: 12px 18px; font-weight: 600; border: 1px solid transparent; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+.btn.primary { background: linear-gradient(180deg, var(--green-600), var(--green-700)); color: #fff; box-shadow: 0 8px 20px rgba(46,125,50,0.35); }
+.btn.primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(46,125,50,0.4); }
+.btn.ghost { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.4); }
+.btn.ghost:hover { background: rgba(255,255,255,0.2); }
+
+/* Sections */
+.section { padding: 80px 0; }
+.section.alt { background: #fff; }
+.section-head { text-align: center; margin-bottom: 26px; }
+.section-head h2 { font-family: "Playfair Display", serif; font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin: 0 0 6px; }
+.section-head p { color: var(--muted); margin: 0; }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+.card { background: var(--card); border: 1px solid rgba(0,0,0,0.06); box-shadow: var(--shadow); border-radius: var(--radius); padding: 20px; }
+.card .icon { font-size: 1.6rem; width: 40px; height: 40px; display: grid; place-items: center; background: var(--green-100); color: var(--green-700); border-radius: 10px; margin-bottom: 8px; }
+.card h3 { margin: 6px 0 6px; font-size: 1.1rem; }
+.card p { color: var(--muted); margin-top: 0; }
+.card ul { margin: 10px 0 0 18px; padding: 0; color: var(--ink); }
+.card .stars { color: var(--brown-500); letter-spacing: 2px; font-size: 1.1rem; margin-bottom: 8px; }
+.card .byline { color: var(--muted); margin: 8px 0 0; font-size: .95rem; }
+
+/* Story */
+.grid-2 { display: grid; grid-template-columns: 1.1fr 1fr; gap: 26px; align-items: center; }
+.list { margin: 14px 0 0 0; padding-left: 18px; color: var(--ink); }
+.story-img img { aspect-ratio: 4/3; object-fit: cover; }
+
+/* Gallery */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.gallery-grid img { aspect-ratio: 4/3; object-fit: cover; }
+
+/* Contact */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 8px; }
+.contact-card { background: var(--card); border: 1px solid rgba(0,0,0,0.06); box-shadow: var(--shadow); border-radius: var(--radius); padding: 20px; }
+.contact-card h3 { margin-top: 0; font-size: 1.1rem; }
+.contact-card label { display: grid; gap: 6px; margin: 10px 0; }
+.contact-card input, .contact-card textarea { padding: 12px 12px; border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; font: inherit; background: #fff; }
+.contact-card input:focus, .contact-card textarea:focus { outline: 2px solid var(--green-100); border-color: var(--green-600); }
+.contact-card .form-note { color: var(--muted); font-size: .9rem; margin: 8px 0 0; }
+
+.social { display: flex; gap: 10px; margin-top: 6px; }
+.social-link { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; color: var(--ink); background: #fff; border: 1px solid rgba(0,0,0,0.08); transition: background .18s ease, transform .18s ease, color .18s ease; }
+.social-link:hover { background: var(--green-100); color: var(--green-700); transform: translateY(-2px); text-decoration: none; }
+.social-link svg { width: 20px; height: 20px; }
+
+/* Footer */
+.site-footer { padding: 26px 0; background: #fcfbf8; border-top: 1px solid rgba(0,0,0,0.06); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.to-top { color: var(--brown-600); }
+
+/* Reveal on scroll */
+.reveal-up { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; transition-delay: var(--reveal-delay, 0ms); }
+.in-view { opacity: 1; transform: none; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .contact-wrap { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .site-nav { position: absolute; right: 4%; top: 64px; background: #ffffff; border: 1px solid rgba(0,0,0,0.08); box-shadow: var(--shadow); border-radius: 12px; padding: 8px; display: none; flex-direction: column; gap: 4px; min-width: 180px; }
+  .site-nav a { display: block; padding: 10px 12px; border-radius: 8px; }
+  .site-nav.open { display: flex; }
+  .nav-toggle { display: inline-flex; }
+  .cards { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
