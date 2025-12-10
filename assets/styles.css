@@ -1,0 +1,182 @@
+/*
+  Leaf & Bean — Styles
+  A calm, nature-inspired palette with gentle motion and cozy typography.
+*/
+
+:root {
+  --leaf: #3e7c59;   /* leafy green */
+  --moss: #2e5a43;   /* deep green */
+  --fern: #6aa57b;   /* accent green */
+  --earth: #6b4f3b;  /* warm brown */
+  --soil: #3f2e22;   /* dark brown */
+  --cream: #f5f2ea;  /* soft paper */
+  --foam: #ffffff;   /* white */
+  --ink: #1d2520;    /* dark text */
+  --shadow: 0 10px 30px rgba(0,0,0,.12);
+  --radius: 14px;
+  --radius-sm: 10px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f8f7f2, var(--cream));
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; color: var(--moss); line-height: 1.25; }
+h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin: 0 0 .6rem; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 .4rem; }
+h3 { font-size: clamp(1.1rem, 2vw, 1.3rem); margin: 0 0 .3rem; }
+p { margin: 0.2rem 0 1rem; color: #2a2f2b; }
+
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus { position: fixed; left: 1rem; top: 1rem; width: auto; height: auto; background: var(--leaf); color: var(--foam); padding: .6rem .8rem; border-radius: 8px; z-index: 10000; }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 1000;
+  backdrop-filter: saturate(160%) blur(8px);
+  background: color-mix(in oklab, var(--cream) 80%, transparent);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: .8rem 0; }
+.brand { display: flex; align-items: center; gap: .6rem; font-weight: 600; letter-spacing: .5px; color: var(--moss); }
+.brand .leaf { font-size: 1.2rem; }
+.brand .name { font-family: "Playfair Display", Georgia, serif; font-size: 1.1rem; }
+.nav { display: flex; gap: 1rem; }
+.nav a { color: #2b3a31; text-decoration: none; padding: .5rem .7rem; border-radius: 10px; transition: background .25s ease, color .25s ease; }
+.nav a:hover { background: #e9efe9; color: var(--moss); }
+
+/* Hero */
+.hero {
+  position: relative; min-height: 78vh; display: grid; place-items: center; isolation: isolate;
+}
+.hero-media {
+  position: absolute; inset: 0;
+  background-image: url('https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/03/eco-friendly-cafe-house.jpg');
+  background-size: cover; background-position: center; filter: saturate(95%) contrast(102%);
+  transform: translateZ(0);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(34, 56, 43, .35), rgba(34, 56, 43, .55));
+  mix-blend-mode: multiply;
+}
+.hero-content {
+  position: relative; z-index: 1; text-align: center; color: var(--foam);
+  padding: 5rem 0 4rem; max-width: 800px;
+}
+.hero p { color: #f1f4f1; font-size: clamp(1rem, 1.7vw, 1.15rem); }
+.hero-actions { margin-top: 1.2rem; display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+
+.btn {
+  --btn-bg: var(--leaf);
+  --btn-fg: var(--foam);
+  border: 0; background: var(--btn-bg); color: var(--btn-fg);
+  padding: .75rem 1.05rem; border-radius: 999px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: .5rem;
+  box-shadow: 0 6px 18px rgba(62,124,89,.25);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(62,124,89,.3); }
+.btn.primary { --btn-bg: var(--leaf); }
+.btn.ghost { --btn-bg: rgba(255,255,255,.12); --btn-fg: #fff; border: 1px solid rgba(255,255,255,.3); box-shadow: none; }
+.btn.ghost:hover { background: rgba(255,255,255,.2); }
+
+/* Sections */
+.section { padding: 4.2rem 0; }
+.section.alt { background: linear-gradient(180deg, #f6f5f0, #efece4); }
+.section-head { text-align: center; max-width: 760px; margin: 0 auto 2rem; }
+.section-head p { color: #637066; }
+
+/* Menu grid */
+.menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.card {
+  background: linear-gradient(180deg, #ffffff, #faf8f3);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.1rem;
+  box-shadow: var(--shadow);
+}
+.card h3 { color: var(--earth); }
+.card ul { list-style: none; padding: 0; margin: .4rem 0 0; }
+.card li { padding: .4rem 0; border-bottom: 1px dashed rgba(0,0,0,.06); }
+.card li:last-child { border-bottom: 0; }
+.card strong { color: var(--moss); }
+
+/* Story */
+.story-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; align-items: center; }
+.story-media {
+  min-height: 360px; border-radius: var(--radius);
+  background-image: url('https://cdn.prod.website-files.com/623ba40662d1081c47631813/66ebb011709139ed34780127_BlogEDM%20images%20-%201600x1000px%20(26)%20copy.png');
+  background-size: cover; background-position: center;
+  box-shadow: var(--shadow);
+}
+.story-copy p { color: #3a463e; }
+
+/* Gallery */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
+.shot { margin: 0; border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--shadow); }
+.shot img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(1.02) contrast(1.03); transition: transform .4s ease, filter .3s ease; }
+.shot:hover img { transform: scale(1.03); filter: saturate(1.1) contrast(1.05); }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; align-items: start; }
+.contact-card, .contact-form {
+  background: #fff; border: 1px solid rgba(0,0,0,.06); border-radius: var(--radius);
+  padding: 1rem; box-shadow: var(--shadow);
+}
+.contact-card a { color: var(--leaf); text-decoration: none; }
+.contact-form .field { display: grid; gap: .3rem; margin-bottom: .8rem; }
+.contact-form .field.full { grid-column: 1 / -1; }
+.contact-form input, .contact-form textarea {
+  border: 1px solid rgba(0,0,0,.12); border-radius: 10px; padding: .6rem .7rem; font: inherit; background: #fbfbf8;
+}
+.contact-form input:focus, .contact-form textarea:focus { outline: 2px solid color-mix(in oklab, var(--leaf) 30%, transparent); }
+
+/* Footer */
+.site-footer { background: linear-gradient(180deg, #f0eee7, #ebe7de); border-top: 1px solid rgba(0,0,0,.06); padding: 2rem 0 1rem; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.footer-brand { display: flex; align-items: center; gap: .5rem; color: var(--moss); font-weight: 600; }
+.social { display: flex; gap: .55rem; }
+.icon { width: 40px; height: 40px; display: inline-grid; place-items: center; color: var(--moss); background: #eaf0ea; border-radius: 50%; text-decoration: none; transition: transform .15s ease, background .2s ease, color .2s ease; }
+.icon:hover { transform: translateY(-1px); background: #dde7dd; color: var(--earth); }
+.tiny { text-align: center; margin-top: .6rem; color: #556359; }
+
+/* Back to top */
+.to-top { position: fixed; right: 1rem; bottom: 1rem; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--leaf); color: #fff; display: grid; place-items: center; box-shadow: var(--shadow); cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; }
+.to-top.show { opacity: 1; pointer-events: auto; }
+.to-top:hover { transform: translateY(-2px); }
+
+/* Reveal animations */
+[data-animate] { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; transition-delay: var(--delay, 0ms); }
+.in-view { opacity: 1 !important; transform: translateY(0) !important; }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .menu-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .story-wrap { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .header-inner { padding: .6rem 0; }
+  .nav { gap: .4rem; }
+  .nav a { padding: .4rem .5rem; font-size: .95rem; }
+  .section { padding: 3rem 0; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+

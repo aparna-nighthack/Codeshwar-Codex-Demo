@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Leaf &amp; Bean — Eco-friendly Café</title>
+    <meta name="description" content="Leaf &amp; Bean is a cozy, eco-friendly café oasis. Organic coffee, seasonal bites, and a calm, nature-inspired space." />
+
+    <!-- Fonts (uses system fallbacks if external loading is blocked) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="leaf">🌿</span>
+          <span class="name">Leaf &amp; Bean</span>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <a href="#menu">Menu</a>
+          <a href="#story">Our Story</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero" aria-label="Welcome to Leaf &amp; Bean">
+        <div class="hero-media" role="img" aria-label="Warm eco-friendly café interior"></div>
+        <div class="container hero-content" data-animate="up">
+          <h1>Welcome to Your Green Café Oasis</h1>
+          <p>Organic brews, seasonal bites, and a calm, cozy space—crafted with care for you and the planet.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#menu">Explore Menu</a>
+            <a class="btn ghost" href="#story">Our Story</a>
+          </div>
+        </div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+      </section>
+
+      <!-- Menu -->
+      <section id="menu" class="section" aria-labelledby="menu-title">
+        <div class="container">
+          <header class="section-head" data-animate="up">
+            <h2 id="menu-title">Menu</h2>
+            <p>Thoughtfully sourced, seasonally inspired, and brewed to perfection.</p>
+          </header>
+          <div class="menu-grid">
+            <article class="card" data-animate="up">
+              <h3>Coffee</h3>
+              <ul>
+                <li><strong>Forest Espresso</strong> — rich, chocolate notes</li>
+                <li><strong>Mossy Latte</strong> — oat milk, maple drizzle</li>
+                <li><strong>Canopy Cold Brew</strong> — slow-steeped, smooth</li>
+              </ul>
+            </article>
+            <article class="card" data-animate="up" style="--delay: 80ms;">
+              <h3>Tea</h3>
+              <ul>
+                <li><strong>Herbal Meadow</strong> — mint, lemongrass</li>
+                <li><strong>Jasmine Grove</strong> — floral, calming</li>
+                <li><strong>Golden Chai</strong> — spicy, comforting</li>
+              </ul>
+            </article>
+            <article class="card" data-animate="up" style="--delay: 160ms;">
+              <h3>Bites</h3>
+              <ul>
+                <li><strong>Seeded Sourdough</strong> — house butter</li>
+                <li><strong>Garden Quiche</strong> — seasonal veg</li>
+                <li><strong>Cocoa Bark</strong> — nuts, sea salt</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Story -->
+      <section id="story" class="section alt" aria-labelledby="story-title">
+        <div class="container story-wrap">
+          <div class="story-media" data-animate="up" aria-hidden="true"></div>
+          <div class="story-copy" data-animate="up">
+            <header class="section-head">
+              <h2 id="story-title">Our Story</h2>
+              <p>Rooted in community. Grown with purpose. Served with heart.</p>
+            </header>
+            <p>
+              Leaf &amp; Bean began as a small idea: a place where slow mornings,
+              good conversations, and earth-friendly choices come together. We work with local
+              roasters, farmers, and makers to bring you honest flavors in a space that feels like home.
+            </p>
+            <p>
+              From compostable packaging and zero-waste initiatives to a menu that celebrates
+              seasonal produce, every detail is designed to tread lightly and leave you feeling nourished.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="section" aria-labelledby="gallery-title">
+        <div class="container">
+          <header class="section-head" data-animate="up">
+            <h2 id="gallery-title">Gallery</h2>
+            <p>Cozy corners, green textures, and little moments of calm.</p>
+          </header>
+          <div class="gallery-grid">
+            <figure class="shot" data-animate="up">
+              <img src="https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/03/eco-friendly-cafe-house.jpg" alt="Sunlit eco-friendly café exterior with plants" />
+            </figure>
+            <figure class="shot" data-animate="up" style="--delay: 80ms;">
+              <img src="https://cdn.prod.website-files.com/623ba40662d1081c47631813/66ebb011709139ed34780127_BlogEDM%20images%20-%201600x1000px%20(26)%20copy.png" alt="Cozy café counter with coffee and pastries" />
+            </figure>
+            <figure class="shot" data-animate="up" style="--delay: 160ms;">
+              <img src="https://fruitbasket.limepack.com/blog/wp-content/uploads/2024/03/eco-friendly-cafe-house.jpg" alt="Green plants and wood textures in café" />
+            </figure>
+            <figure class="shot" data-animate="up" style="--delay: 240ms;">
+              <img src="https://cdn.prod.website-files.com/623ba40662d1081c47631813/66ebb011709139ed34780127_BlogEDM%20images%20-%201600x1000px%20(26)%20copy.png" alt="Warm latte art and fresh bake" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section alt" aria-labelledby="contact-title">
+        <div class="container contact-grid">
+          <header class="section-head" data-animate="up">
+            <h2 id="contact-title">Visit &amp; Connect</h2>
+            <p>We’d love to see you. Let’s keep in touch.</p>
+          </header>
+
+          <div class="contact-card" data-animate="up">
+            <h3>Location</h3>
+            <p>
+              123 Canopy Lane<br/>
+              Greenhaven, GH 90210
+            </p>
+            <p><strong>Hours:</strong> Mon–Sun, 7am–6pm</p>
+            <p><strong>Phone:</strong> <a href="tel:+15551234567">(555) 123-4567</a></p>
+            <p><strong>Email:</strong> <a href="mailto:hello@leafandbean.cafe">hello@leafandbean.cafe</a></p>
+          </div>
+
+          <form class="contact-form" data-animate="up" aria-label="Send us a message" onsubmit="event.preventDefault(); this.reset(); alert('Thanks for reaching out! We will get back to you soon.');">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div class="field full">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button class="btn primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="leaf">🌿</span>
+          <span class="name">Leaf &amp; Bean</span>
+        </div>
+        <div class="social" aria-label="Social links">
+          <a href="#" aria-label="Instagram" class="icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18 6.2a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.2z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M13.5 9H16V6h-2.5C10.9 6 10 7.9 10 10.5V12H8v3h2v7h3v-7h2.1l.9-3H13v-1.5c0-.8.2-1.5 1.5-1.5z"/></svg>
+          </a>
+          <a href="#" aria-label="X" class="icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3 3h3.8l5 7 5.3-7H21l-7.2 9.5L21 21h-3.8l-5.4-7.6L6 21H3l7.6-8.9z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="container tiny">
+        <small>© <span id="year"></span> Leaf &amp; Bean — Brewed kindly for people and planet.</small>
+      </div>
+    </footer>
+
+    <button class="to-top" aria-label="Back to top" title="Back to top">
+      ↑
+    </button>
+
+    <script src="assets/script.js"></script>
+  </body>
+  </html>
+
